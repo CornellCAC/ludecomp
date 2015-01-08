@@ -4,7 +4,7 @@
 #SBATCH -n 1               # number of MPI tasks requested
 #SBATCH -p development     # queue (partition)
 #SBATCH -t 00:02:00        # run time (hh:mm:ss)
-# #SBATCH -A TG-TRA120006    # account number
+#SBATCH -A TG-TRA120006    # account number
 
 date
 env|sort>variables.txt

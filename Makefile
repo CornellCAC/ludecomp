@@ -6,10 +6,10 @@ BATCH=sbatch job.sh
 #COMPILER=pgcc
 #FFLAGS=-g -tp barcelona-64
 #FFLAGS=-O3 -fast -tp barcelona-64
-#BATCH=qsub job.sge
+#BATCH=qsub job.sge TG-TRA120006
 
-# Choose the LABPACKLIB based on the compiler and machine.
-# For icc, try mkl or mkl_lonestar.
+# Choose the LAPACKLIB based on the compiler and machine.
+# For icc, try mkl.
 # For pgi (on lonestar only), try llapack or lacml or lacml_mp.
 
 LAPACKLIB=mkl
