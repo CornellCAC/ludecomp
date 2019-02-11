@@ -1,10 +1,10 @@
 #!/bin/bash
 #SBATCH -J ludecomp        # job name
 #SBATCH -o ludecomp.o%j    # output/error file (%j = jobID)
+#SBATCH -N 1               # number of nodes required
 #SBATCH -n 1               # number of MPI tasks requested
 #SBATCH -p development     # queue (partition)
-#SBATCH -t 00:02:00        # run time (hh:mm:ss)
-#SBATCH -A TG-TRA120006    # account number
+#SBATCH -t 00:05:00        # run time (hh:mm:ss)
 
 date
 env|sort>variables.txt
@@ -24,9 +24,10 @@ do
   then
     export RUNTIME=`cat nrtime.txt`
     # The application is compiled so that -f shows the compiler flags.
-    export COMPILER=`./$lib -f|cut -d' ' -f2-|sed "s/ /%20/g"`
     echo $RUNTIME `./$lib -f` >> results.txt
-    # The django web page to record results needs a unique job id, but we
+    # (The next several lines pertain only to live workshops at Cornell.)
+    # export COMPILER=`./$lib -f|cut -d' ' -f2-|sed "s/ /%20/g"`
+    # The django web page needs a unique job id when it records results, but we
     # run several timings per job, so we pad the actual job ID with $count.
     # curl -G -d user=$USER -d jobid=$SLURM_JOB_ID$count -d run_time=$RUNTIME -d compiler=$COMPILER -d library=$lib -d arguments=$MATRIX http://consultrh5.cac.cornell.edu/intro_to_ranger/
   fi

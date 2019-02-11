@@ -14,6 +14,11 @@
 // info >0 if U(i,i) is exactly zero.
 
 typedef size_t lapack_int;
+extern lapack_int dgetrf_(lapack_int* m, lapack_int* n, double* a,
+                          lapack_int* la, lapack_int* p, lapack_int* k);
+extern lapack_int dgetrs_(char* t, lapack_int* n, lapack_int* nrhs, double* a,
+                          lapack_int* la, lapack_int* p, double* b,
+                          lapack_int* lb, lapack_int* k);
      
 int main (int argc, char** argv)
 {

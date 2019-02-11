@@ -1,6 +1,6 @@
 COMPILER=icc
-FFLAGS=-g
-#FFLAGS=-O3 -ipo -xhost
+#FFLAGS=-g
+FFLAGS=-O3 -ipo -xCORE-AVX2 -axCORE-AVX512,MIC-AVX512
 BATCH=sbatch job.sh
 
 #COMPILER=pgcc
@@ -63,7 +63,7 @@ submit:
 
 clean:
 	-rm -f *~ *.o ludecomp.o* core.*
-	-find . -type f -perm +100 -size +20k -exec rm {} \;
+	-find . -type f -perm /100 -size +20k -exec rm {} \;
 
 distclean:
 	make clean
