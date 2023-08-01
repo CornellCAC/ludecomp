@@ -12,7 +12,7 @@ module load gsl
 set -x
 
 export MATRIX=3000
-#export OMP_NUM_THREADS=8
+#export OMP_NUM_THREADS=56
 OUT=t$SLURM_JOB_ID.txt
 
 echo Shell is $SHELL

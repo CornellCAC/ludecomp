@@ -1,6 +1,7 @@
 COMPILER=icc
+FFLAGS=-O2 -xCORE-AVX2
 #FFLAGS=-g
-FFLAGS=-O3 -ipo -xCORE-AVX2 -axCORE-AVX512,MIC-AVX512
+#FFLAGS=-O3 -ipo -xCORE-AVX512 -qopt-zmm-usage=high
 BATCH=sbatch job.sh
 
 #COMPILER=pgcc
